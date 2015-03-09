@@ -9,7 +9,7 @@ class TraceDebugBundle extends Bundle
 {
     public function boot()
     {
-        $tracer = $this->getContainer()->get('trace_debug.tracer');
+        $tracer = $this->container->get('trace_debug.tracer');
     }
 
     public function getPath()
