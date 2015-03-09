@@ -1,0 +1,30 @@
+{
+    "name": "pedrotroller/trace-debug",
+    "description": "A little debugging tool. You can capture stack traces.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PedroTroller",
+            "email": "plazanet.pierre@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": [ "src/PedroTroller/TraceDebug/Resources/functions/trace.php" ],
+        "psr-0": { "PedroTroller\\TraceDebug\\": "src/" }
+    },
+    "require": {
+        "symfony/dependency-injection": "~2.0",
+        "symfony/http-kernel": "~2.0"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.1"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

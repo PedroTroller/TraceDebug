@@ -1,0 +1,14 @@
+parameters:
+    trace_debug.data_collector.trace_collector.class:  PedroTroller\TraceDebug\DataCollector\TraceCollector
+    trace_debug.tracer.class:                          PedroTroller\TraceDebug\Tracer
+
+services:
+    trace_debug.data_collector.trace_collector:
+        class: %trace_debug.data_collector.trace_collector.class%
+        tags:
+            - { name: data_collector, template: "TraceDebugBundle::wdt.html.twig", id: "trace_debug" }
+
+    trace_debug.tracer:
+        class: %trace_debug.tracer.class%
+        calls:
+            - [ 'addHandler', [ @trace_debug.data_collector.trace_collector ]]
