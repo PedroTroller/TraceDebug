@@ -2,12 +2,10 @@
 
 namespace PedroTroller\TraceDebug;
 
-use PedroTroller\TraceDebug\TraceHandler;
-
 class Tracer
 {
     /**
-     * @var TraceHandler[] $handlers
+     * @var TraceHandler[]
      */
     private static $handlers = [];
 
@@ -15,12 +13,10 @@ class Tracer
      * Capture the current stacktrace.
      *
      * @param string|null $identifier
-     *
-     * @return void
      */
     public static function trace($identifier = null, $subtrace = 1, \Exception $exception = null)
     {
-        $exception = null === $exception ? new \Exception : $exception;
+        $exception = null === $exception ? new \Exception() : $exception;
         $trace     = array_slice($exception->getTrace(), $subtrace);
 
         foreach (self::$handlers as $handler) {
@@ -30,8 +26,6 @@ class Tracer
 
     /**
      * @param TraceHandler $handler
-     *
-     * @return void
      */
     public function addHandler(TraceHandler $handler)
     {
