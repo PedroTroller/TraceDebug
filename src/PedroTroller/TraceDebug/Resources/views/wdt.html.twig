@@ -1,11 +1,32 @@
 {% extends 'WebProfilerBundle:Profiler:layout.html.twig' %}
 
+{% block base64 %}
+iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMFEw8WMu46DwAAAF9JREFUSMft0zEKhEAQRNGnCJ7Eixmq19kNPZy3EERNxnhZcLL60BR0UnTDJ4Q/aUr2GDGhfbnjxBcr9mc54MBVaY7S8fo1P+lKblgwV3rpp3SEaBEtokW0iBbRItTgBvGTYSpgzDNTAAAAAElFTkSuQmCC
+{% endblock base64 %}
+
+{% block toolbar %}
+    {% set cpt = 0 %}
+    {% for index, traces in collector.traces.anonymous %}
+        {% set cpt = cpt + 1 %}
+    {% endfor %}
+    {% for index, traces in collector.traces.identified %}
+        {% for nbr, trace in traces %}
+            {% set cpt = cpt + 1 %}
+        {% endfor %}
+    {% endfor %}
+    {% if cpt > 0 %}
+        {% set icon %}
+            <img width="20" height="28" alt="Trace" src="data:image/png;base64,{{- block('base64') -}}" />
+            <span class="sf-toolbar-status sf-toolbar-status-yellow">{{ cpt }}</span>
+        {% endset %}
+        {% include 'WebProfilerBundle:Profiler:toolbar_item.html.twig' with { 'link': profiler_url } %}
+    {% endif %}
+{% endblock %}
+
 {% block menu %}
     <span class="label">
         <span class="icon">
-        {{- "" -}}
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMFEw8WMu46DwAAAF9JREFUSMft0zEKhEAQRNGnCJ7Eixmq19kNPZy3EERNxnhZcLL60BR0UnTDJ4Q/aUr2GDGhfbnjxBcr9mc54MBVaY7S8fo1P+lKblgwV3rpp3SEaBEtokW0iBbRItTgBvGTYSpgzDNTAAAAAElFTkSuQmCC"/>        
-        {{- "" -}}
+            <img src="data:image/png;base64,{{ block('base64') }}"/>
         </span>
         <strong>trace()</strong>
         <span class="count">

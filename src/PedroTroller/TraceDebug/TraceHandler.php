@@ -5,7 +5,7 @@ namespace PedroTroller\TraceDebug;
 interface TraceHandler
 {
     /**
-     * @param array $trace
+     * @param array       $trace
      * @param string|null $identifier
      *
      * @return void

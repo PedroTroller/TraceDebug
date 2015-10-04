@@ -19,6 +19,6 @@ class TraceDebugBundle extends Bundle
 
     public function getContainerExtension()
     {
-        return new TraceDebugExtension;
+        return new TraceDebugExtension();
     }
 }

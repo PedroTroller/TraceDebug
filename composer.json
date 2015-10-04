@@ -1,6 +1,7 @@
 {
     "name": "pedrotroller/trace-debug",
     "description": "A little debugging tool. You can capture stack traces.",
+    "keywords": ["DX", "stacktrace", "debug", "trace"],
     "license": "MIT",
     "authors": [
         {
@@ -19,6 +20,9 @@
     "require-dev": {
         "phpspec/phpspec": "~2.1"
     },
+    "suggest": {
+        "pedrotroller/dredd-report": "A quick report of your security voters atcivity."
+    }
     "config": {
         "bin-dir": "bin"
     },
