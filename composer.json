@@ -22,7 +22,7 @@
     },
     "suggest": {
         "pedrotroller/dredd-report": "A quick report of your security voters atcivity."
-    }
+    },
     "config": {
         "bin-dir": "bin"
     },
