@@ -2,6 +2,8 @@
 
 namespace PedroTroller\TraceDebug;
 
+use Exception;
+
 class Tracer
 {
     /**
@@ -14,9 +16,9 @@ class Tracer
      *
      * @param string|null $identifier
      */
-    public static function trace($identifier = null, $subtrace = 1, \Exception $exception = null)
+    public static function trace($identifier = null, $subtrace = 1, Exception $exception = null)
     {
-        $exception = null === $exception ? new \Exception() : $exception;
+        $exception = null === $exception ? new Exception() : $exception;
         $trace     = array_slice($exception->getTrace(), $subtrace);
 
         foreach (self::$handlers as $handler) {

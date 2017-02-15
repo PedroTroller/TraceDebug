@@ -1,7 +1,12 @@
 {
     "name": "pedrotroller/trace-debug",
     "description": "A little debugging tool. You can capture stack traces.",
-    "keywords": ["DX", "stacktrace", "debug", "trace"],
+    "keywords": [
+        "DX",
+        "stacktrace",
+        "debug",
+        "trace"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -9,26 +14,32 @@
             "email": "plazanet.pierre@gmail.com"
         }
     ],
-    "autoload": {
-        "files": [ "src/PedroTroller/TraceDebug/Resources/functions/trace.php" ],
-        "psr-0": { "PedroTroller\\TraceDebug\\": "src/" }
-    },
     "require": {
-        "symfony/dependency-injection": "~2.0",
-        "symfony/http-kernel": "~2.0"
+        "symfony/dependency-injection": "~3.0",
+        "symfony/http-kernel": "~3.0"
     },
     "require-dev": {
-        "phpspec/phpspec": "~2.1"
+        "phpspec/phpspec": "^3.2",
+        "pedrotroller/project-requirements": "dev-master@dev",
+        "pedrotroller/php-cs-custom-fixer": "^1.6"
     },
     "suggest": {
         "pedrotroller/dredd-report": "A quick report of your security voters atcivity."
+    },
+    "autoload": {
+        "files": [
+            "src/PedroTroller/TraceDebug/Resources/functions/trace.php"
+        ],
+        "psr-4": {
+            "PedroTroller\\TraceDebug\\": "src/PedroTroller/TraceDebug/"
+        }
     },
     "config": {
         "bin-dir": "bin"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "2.0.x-dev"
         }
     }
 }
